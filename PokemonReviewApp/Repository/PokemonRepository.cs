@@ -5,6 +5,8 @@ using PokemonReviewApp.Models;
 
 namespace PokemonReviewApp.Repository
 {
+    //getpokemonrating virker ikke
+
     public class PokemonRepository : IPokemonRepository
     {
         private readonly DataContext _context;
@@ -28,7 +30,7 @@ namespace PokemonReviewApp.Repository
             var review = _context.Reviews.Where(p => p.Pokemon.Id == pokeId);
             if (review.Count() <= 0)
                 return 0;
-            return review.Sum(r => r.Rating) / review.Count();
+            return ((decimal)review.Sum(r => r.Rating) / review.Count());
         }
 
         public ICollection<Pokemon> GetPokemons()

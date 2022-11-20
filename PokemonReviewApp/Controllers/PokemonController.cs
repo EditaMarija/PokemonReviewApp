@@ -39,11 +39,14 @@ namespace PokemonReviewApp.Controllers
 
             if (!_pokemonRepository.PokemonExists(pokeId))
                 return NotFound();
-            var pokemon = _pokemonRepository.GetPokemon(pokeId);
+
+            var pokemon = _mapper.Map<PokemonDto>(_pokemonRepository.GetPokemon(pokeId));
+
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             return Ok(pokemon);
+
         }
 
         [HttpGet("{pokeId}/rating")]
@@ -54,11 +57,13 @@ namespace PokemonReviewApp.Controllers
 
             if (!_pokemonRepository.PokemonExists(pokeId))
                 return NotFound();
-            var pokemonRating = _pokemonRepository.GetPokemonRating(pokeId);
+
+            var rating = _pokemonRepository.GetPokemonRating(pokeId);
+
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            return Ok(pokemonRating);
+            return Ok(rating);
         }
 
 
