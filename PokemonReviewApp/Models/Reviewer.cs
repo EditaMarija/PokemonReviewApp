@@ -1,5 +1,8 @@
-﻿namespace PokemonReviewApp.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PokemonReviewApp.Models
 {
+    [Table("Reviewer")]
     public class Reviewer
     {
         public int Id { get; set; }
