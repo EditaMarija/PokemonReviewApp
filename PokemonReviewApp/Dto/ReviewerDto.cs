@@ -8,6 +8,6 @@ namespace PokemonReviewApp.Dto
         public string FirstName { get; set; }
         public string LastName { get; set; }
         //public ICollection<Review> Reviews { get; set; }
-        public ICollection<ReviewDto> Reviews { get; set; }
+        
     }
 }
